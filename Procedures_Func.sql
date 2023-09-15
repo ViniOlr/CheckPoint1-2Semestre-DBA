@@ -1,5 +1,7 @@
 SET SERVEROUTPUT ON
 
+-- Uma Procedure para Cadastrar um Pet
+
 CREATE OR REPLACE PROCEDURE CP1_CADASTRO_PET (
     p_tipoPet IN VARCHAR,
     p_nomePet IN VARCHAR,
@@ -11,6 +13,9 @@ BEGIN
     VALUES (p_tipoPet, p_nomePet, p_idade);
 
 END;
+
+
+-- Uma Função para recuperar dados de um Pet com base no parâmetro ID.
 
 CREATE OR REPLACE FUNCTION CP1_GET_PET(id_pet NUMBER)
 RETURN VARCHAR2
@@ -38,6 +43,9 @@ EXCEPTION
         RETURN 'Pet não encontrado para o ID ' || id_pet;
 END;
 
+
+-- Uma Procedure para alterar dados de um Pet com base no parâmetro ID
+
 CREATE OR REPLACE PROCEDURE CP1_ALTERA_PET (
     p_id IN NUMBER,
     p_tipoPet IN VARCHAR,
@@ -55,6 +63,9 @@ BEGIN
 
 END;
 
+
+-- Uma Procedure para excluir um Pet com base no parâmetro ID
+
 CREATE OR REPLACE PROCEDURE CP1_EXCLUI_PET (
     p_id IN NUMBER
 )
@@ -65,6 +76,9 @@ BEGIN
     WHERE ID = p_id;
 
 END;
+
+
+-- Uma Procedure para excluir todos as linhas da Tabela
 
 CREATE OR REPLACE PROCEDURE CP1_EXCLUI_TODOS
 AS
